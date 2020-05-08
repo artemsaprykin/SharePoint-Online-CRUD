@@ -1,10 +1,11 @@
-﻿cls
+cls
 $ErrorActionPreference = "Stop"
 
 if(!(Get-Module -Name SharePointPnPPowerShellOnline -ea 0)) {
 Write-Host "Working on it..." -ForegroundColor Green
 Write-Progress -Activity "Loading Modules" -Status "Loading SharePointPnPPowerShellOnline"
-Install-Module SharePointPnPPowerShellOnline -Force
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force
+Install-Module SharePointPnPPowerShellOnline -Scope CurrentUser -Force
 Import-Module SharePointPnPPowerShellOnline
 }
 
