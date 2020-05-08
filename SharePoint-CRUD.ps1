@@ -23,10 +23,10 @@ $Credentials = Get-Credential -Credential $UserName
 
 #List Data
 $ListName = "CRUD Test"
-$ModifiedDate = "2016-11-11T10:00:00-00:00"
-$CreatedDate = "2022-11-11T10:00:00-00:00"
-$ValuesToUpdate = @{"Modified"=$ModifiedDate;"Created"=$CreatedDate}
 $IdToUpdate = "1"
+$ModifiedDate = Get-Date "2016-11-11T10:00:00-00:00"
+$CreatedDate = Get-Date "2022-11-11T10:00:00-00:00"
+$ValuesToUpdate = @{"Modified"=$ModifiedDate;"Created"=$CreatedDate}
 
 
 #Update List Item
