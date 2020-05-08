@@ -16,8 +16,9 @@ $SiteUrl = ""
 #User Credentials
 if ($Credentials -eq $null) {
 $Credentials = Get-Credential -Credential $UserName
+#Connect to SharePoint with browser based login
     Connect-PnPOnline -Url $SiteUrl -UseWebLogin
-    #Alternate
+#Connect to SharePoint with specific credentials
     #Connect-PnPOnline -Url $SiteUrl -Credentials $Credentials
 }
 
@@ -32,7 +33,7 @@ $ValuesToUpdate = @{"Modified"=$ModifiedDate;"Created"=$CreatedDate}
 #Update List Item
 Set-PnPListItem -List $ListName -Identity $IdToUpdate -Values $ValuesToUpdate
 
-<#
+
 #Retrive List Items
 $ListItems = Get-PnPListItem -List $ListName
     foreach ($ListItem in $ListItems) {
@@ -41,5 +42,4 @@ $ListItems = Get-PnPListItem -List $ListName
         Write-Host "Modified Date :" $ListItem["Modified"]
         Write-Host "Created Date :" $ListItem["Created"]
         Write-Host "------------------------------------"
-    }
-#>
+}
