@@ -16,6 +16,8 @@ $SiteUrl = ""
 #User Credentials
 if ($Credentials -eq $null) {
 $Credentials = Get-Credential -Credential $UserName
+    Connect-PnPOnline -Url $SiteUrl -UseWebLogin
+    #Alternate
     Connect-PnPOnline -Url $SiteUrl -Credentials $Credentials
 }
 
